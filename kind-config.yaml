@@ -1,0 +1,26 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30080    # UI
+    hostPort: 30080
+    protocol: TCP
+  - containerPort: 30162    # Trap Receiver
+    hostPort: 30162
+    protocol: UDP
+  - containerPort: 30090    # Prometheus
+    hostPort: 30090
+    protocol: TCP
+  - containerPort: 30091    # Prometheus Alertmanager
+    hostPort: 30091
+    protocol: TCP
+  - containerPort: 30092    # Prometheus Grafana
+    hostPort: 30092
+    protocol: TCP
+  - containerPort: 30081    # UI 2
+    hostPort: 30081
+    protocol: TCP
+  - containerPort: 30082    # UI 3
+    hostPort: 30082
+    protocol: TCP
