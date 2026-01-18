@@ -14,7 +14,7 @@ set -e
 KIND_CLUSTER_NAME="trishul-cluster"
 NAMESPACE="trishul"
 HELM_RELEASE_NAME="trishul"
-GHCR_REGISTRY="ghcr.io/tosumitdhaka/trishul:2.1.7"
+GHCR_REGISTRY="ghcr.io/tosumitdhaka/trishul:2.1.8"
 HELM_CHART_DIR="trishul-helm"
 GHCR_TOKEN="${GHCR_TOKEN:-}"
 
