@@ -7,7 +7,9 @@ metadata:
   labels:
     {{- include "trishul.labels" . | nindent 4 }}
 data:
-  # Placeholder - Import dashboards manually via Grafana UI
-  # Dashboard JSON files provided separately
-  .keep: ""
+{{- $files := .Files }}
+{{- range $path, $_ := $files.Glob "dashboards/*.json" }}
+  {{ base $path }}: |-
+{{ $files.Get $path | indent 4 }}
+{{- end }}
 {{- end }}

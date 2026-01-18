@@ -15,7 +15,7 @@ image:
   backend:
     registry: "ghcr.io/tosumitdhaka"  # Override global registry if needed
     repository: trishul-backend
-    tag: "2.1.8"
+    tag: "2.1.8b"
     pullPolicy: IfNotPresent
     pullSecret: "ghcr-secret"
   frontend:
@@ -141,7 +141,7 @@ affinity: {}
 config:
   project:
     name: Trishul
-    version: "2.1.8"
+    version: "2.1.8b"
   
   database:
     batch_size: 2000
@@ -171,6 +171,8 @@ config:
     sync_strategy: append
     skip_synced: true
     batch_size: 1000
+
+  metrics: {}
 
   web:
     host: 0.0.0.0
