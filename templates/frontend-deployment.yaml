@@ -18,15 +18,18 @@ spec:
       annotations:
         checksum/nginx-config: {{ include (print $.Template.BasePath "/configmap-nginx.yaml") . | sha256sum }}
     spec:
-      {{- with .Values.imagePullSecrets }}
+      {{- with .Values.image.frontend.pullSecret | default .Values.imagePullSecrets }}
       imagePullSecrets:
-        {{- toYaml . | nindent 8 }}
+      - name: {{ . }}
+      {{- end }}
+      {{- if .Values.hostNetwork }}
+      hostNetwork: true
+      dnsPolicy: ClusterFirstWithHostNet
       {{- end }}
       containers:
       - name: frontend
         image: {{ include "trishul.frontend.image" . }}
         imagePullPolicy: {{ .Values.image.frontend.pullPolicy }}
-
         env:
         - name: NGINX_CLIENT_MAX_BODY_SIZE
           value: "{{ .Values.config.upload.max_size_mb }}M"

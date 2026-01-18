@@ -6,22 +6,24 @@
 # Global Configuration
 # ============================================
 global:
-  imageRegistry: "" 
+  imageRegistry: []
 
 # ============================================
 # Image Configuration
 # ============================================
 image:
   backend:
-    registry: "trishul"  # Override global registry if needed
+    registry: "ghcr.io/tosumitdhaka"  # Override global registry if needed
     repository: trishul-backend
     tag: "2.1.7"
     pullPolicy: IfNotPresent
+    pullSecret: "ghcr-secret"
   frontend:
-    registry: "trishul"  # Override global registry if needed
+    registry: "ghcr.io/tosumitdhaka"  # Override global registry if needed
     repository: trishul-frontend
     tag: "2.1.7"
     pullPolicy: IfNotPresent
+    pullSecret: "ghcr-secret"
   mysql:
     registry: ""  # Override global registry if needed
     repository: mysql
@@ -265,7 +267,7 @@ monitoring:
     
     service:
       type: NodePort
-      nodePort: 30093
+      nodePort: 30091
 
     config:
       global:
@@ -335,4 +337,4 @@ monitoring:
     
     service:
       type: NodePort
-      nodePort: 30300  # Access Grafana at http://node-ip:30300
+      nodePort: 30092  # Access Grafana at http://node-ip:30300
