@@ -123,3 +123,28 @@ data:
         db_fetch_limit_options: {{ $config.ui.data_table.db_fetch_limit_options | default $default.ui.data_table.db_fetch_limit_options | toJson }}
         priority_columns: {{ $config.ui.data_table.priority_columns | default $default.ui.data_table.priority_columns | toJson }}
         node_type_options: {{ $config.ui.data_table.node_type_options | default $default.ui.data_table.node_type_options | toJson }}
+
+    external_links:
+      prometheus:
+        enabled: {{ $config.external_links.prometheus.enabled | default $default.external_links.prometheus.enabled }}
+        url: "{{ $config.external_links.prometheus.url | default $default.external_links.prometheus.url }}"
+        label: "{{ $config.external_links.prometheus.label | default $default.external_links.prometheus.label }}"
+        description: "{{ $config.external_links.prometheus.description | default $default.external_links.prometheus.description }}"
+        icon: "{{ $config.external_links.prometheus.icon | default $default.external_links.prometheus.icon }}"
+        color: "{{ $config.external_links.prometheus.color | default $default.external_links.prometheus.color }}"
+
+      alertmanager:
+        enabled: {{ $config.external_links.alertmanager.enabled | default $default.external_links.alertmanager.enabled }}
+        url: "{{ $config.external_links.alertmanager.url | default $default.external_links.alertmanager.url }}"
+        label: "{{ $config.external_links.alertmanager.label | default $default.external_links.alertmanager.label }}"
+        description: "{{ $config.external_links.alertmanager.description | default $default.external_links.alertmanager.description }}" 
+        icon: "{{ $config.external_links.alertmanager.icon | default $default.external_links.alertmanager.icon }}"
+        color: "{{ $config.external_links.alertmanager.color | default $default.external_links.alertmanager.color }}"
+
+      grafana:
+        enabled: {{ $config.external_links.grafana.enabled | default $default.external_links.grafana.enabled }}
+        url: "{{ $config.external_links.grafana.url | default $default.external_links.grafana.url }}"
+        label: "{{ $config.external_links.grafana.label | default $default.external_links.grafana.label }}"
+        description: "{{ $config.external_links.grafana.description | default $default.external_links.grafana.description }}"
+        icon: "{{ $config.external_links.grafana.icon | default $default.external_links.grafana.icon }}"
+        color: "{{ $config.external_links.grafana.color | default $default.external_links.grafana.color }}"
