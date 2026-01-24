@@ -1,1 +1,1 @@
-# Helm Charts for Trishul App
+Helm Charts for Trishul App
